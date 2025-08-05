@@ -401,6 +401,17 @@ img {
     color: white;
 }
 
+.btn.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.btn.disabled:hover {
+    transform: none;
+    box-shadow: var(--card-shadow);
+}
+
 .scroll-indicator {
     position: absolute;
     bottom: 40px;
