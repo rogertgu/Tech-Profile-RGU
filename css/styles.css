@@ -1476,7 +1476,6 @@ img {
 /* Estilos para la separación visual en About Me */
 .section-with-separator {
     border-top: 2px solid rgba(var(--primary-color-rgb), 0.2);
-    margin-top: 40px;
     padding-top: 40px;
 }
 
