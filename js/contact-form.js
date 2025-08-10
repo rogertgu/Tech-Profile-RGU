@@ -27,7 +27,7 @@ class ContactForm {
     this.isSubmitting = false;
     
     // Elementos DOM
-    this.form = document.querySelector(this.options.formSelector);
+    this.form = document.getElementById('contact-form');
     
     // Inicializar si el formulario existe
     if (this.form) {
@@ -469,8 +469,8 @@ class ContactForm {
   }
 }
 
-// Inicializar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-  // Crear instancia global
-  window.contactForm = new ContactForm();
-});
+// Inicialización manual opcional si se requiere validación avanzada
+// Para activar: window.contactForm = new ContactForm({ simulateSubmission: false });
+// document.addEventListener('DOMContentLoaded', () => {
+//   window.contactForm = new ContactForm();
+// });

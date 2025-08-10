@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const skillBars = document.querySelectorAll('.skill-progress');
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectItems = document.querySelectorAll('.project-item');
-    const contactForm = document.getElementById('contactForm');
+    const contactForm = document.getElementById('contact-form');
     const currentYearSpan = document.getElementById('current-year');
     const cursorFollower = document.querySelector('.cursor-follower');
 
@@ -172,35 +172,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Manejar envío del formulario de contacto
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Aquí se puede añadir la lógica para enviar el formulario
-            // Por ahora, solo mostraremos un mensaje de éxito simulado
-            const formData = new FormData(this);
-            const formValues = {};
-            
-            for (let [key, value] of formData.entries()) {
-                formValues[key] = value;
-            }
-            
-            console.log('Formulario enviado:', formValues);
-            
-            // Simular envío exitoso
+            // Permitimos el envío nativo (no llamamos preventDefault)
             const submitBtn = this.querySelector('.submit-btn');
-            const originalBtnText = submitBtn.innerHTML;
-            
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                this.reset();
-                submitBtn.innerHTML = '<i class="fas fa-check"></i> Mensaje Enviado';
-                
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalBtnText;
-                    submitBtn.disabled = false;
-                }, 3000);
-            }, 2000);
+            if (submitBtn) {
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+                submitBtn.disabled = true;
+            }
         });
     }
 
