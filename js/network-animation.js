@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Obtener un color aleatorio de la paleta
         getRandomColor() {
             const colors = [
-                'rgba(52, 152, 219, 0.7)', // Azul eléctrico
-                'rgba(46, 204, 113, 0.7)', // Verde azulado
-                'rgba(155, 89, 182, 0.7)'  // Violeta tecnológico
+                'rgba(0, 212, 170, 0.6)',   // Cyan/teal primary
+                'rgba(124, 58, 237, 0.5)',   // Violeta eléctrico
+                'rgba(59, 130, 246, 0.5)'    // Azul tech
             ];
             return colors[Math.floor(Math.random() * colors.length)];
         }
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     ctx.beginPath();
                     ctx.moveTo(nodes[i].x, nodes[i].y);
                     ctx.lineTo(nodes[j].x, nodes[j].y);
-                    ctx.strokeStyle = `rgba(var(--primary-color-rgb), ${opacity * 0.5})`;
+                    ctx.strokeStyle = `rgba(0, 212, 170, ${opacity * 0.3})`;
                     ctx.lineWidth = 1;
                     ctx.stroke();
                 }

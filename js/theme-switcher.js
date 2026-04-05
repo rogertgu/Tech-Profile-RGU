@@ -222,49 +222,8 @@ class ThemeSwitcher {
 // Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
   // Crear instancia global
-  window.themeSwitcher = new ThemeSwitcher();
-  
-  // Si no existe un botón de cambio de tema, crear uno
-  if (!document.querySelector('#theme-toggle')) {
-    const header = document.querySelector('header');
-    
-    if (header) {
-      // Crear el botón
-      const toggleButton = document.createElement('button');
-      toggleButton.id = 'theme-toggle';
-      toggleButton.className = 'theme-toggle-btn';
-      toggleButton.setAttribute('aria-label', 'Cambiar tema');
-      
-      // Añadir icono (usando Font Awesome si está disponible)
-      if (document.querySelector('link[href*="font-awesome"]') || document.querySelector('link[href*="fontawesome"]')) {
-        const icon = document.createElement('i');
-        icon.className = 'fas fa-moon';
-        toggleButton.appendChild(icon);
-      } else {
-        toggleButton.textContent = 'Cambiar tema';
-      }
-      
-      // Añadir estilos inline básicos si no hay estilos definidos
-      toggleButton.style.cssText = `
-        position: relative;
-        padding: 8px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        color: inherit;
-        font-size: 1.2rem;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background-color 0.3s;
-      `;
-      
-      // Añadir el botón al header
-      header.appendChild(toggleButton);
-      
-      // Configurar el botón
-      window.themeSwitcher.setupToggleButton();
-    }
-  }
+  window.themeSwitcher = new ThemeSwitcher({
+    toggleSelector: '.theme-toggle',
+    defaultTheme: 'dark'
+  });
 });
