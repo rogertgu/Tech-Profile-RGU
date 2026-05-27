@@ -1,7 +1,8 @@
 // config-loader.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('/config.yml')
+    const basePath = window.location.pathname.includes('/en/') ? '../' : './';
+    fetch(basePath + 'config.yml')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
